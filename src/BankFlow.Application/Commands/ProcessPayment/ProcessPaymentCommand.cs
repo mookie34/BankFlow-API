@@ -78,7 +78,10 @@ public class ProcessPaymentCommandHandler : IRequestHandler<ProcessPaymentComman
         await _unitOfWork.Payments.AddAsync(payment);
 
         // 4. Aplicar el pago al préstamo (actualiza saldo y estado)
-        loan.ApplyPayment(principalAmount);
+        if (principalAmount > 0)
+        {
+            loan.ApplyPayment(principalAmount);
+        }
         _unitOfWork.Loans.Update(loan);
 
         // 5. Marcar la siguiente cuota como pagada

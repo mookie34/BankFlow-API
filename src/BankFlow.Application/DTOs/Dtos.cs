@@ -16,39 +16,41 @@
             int ActiveLoansCount
         );
 
-        public record LoanDto(
-            int Id,
-            int CustomerId,
-            string CustomerName,
-            decimal Amount,
-            decimal InterestRate,
-            int TermMonths,
-            string LoanType,
-            string Status,
-            decimal MonthlyPayment,
-            decimal TotalPaid,
-            decimal OutstandingBalance,
-            DateTime StartDate,
-            DateTime EndDate
-        );
+        public record LoanDto
+        {
+            public int Id { get; init; }
+            public int CustomerId { get; init; }
+            public string CustomerName { get; init; } = string.Empty;
+            public decimal Amount { get; init; }
+            public decimal InterestRate { get; init; }
+            public int TermMonths { get; init; }
+            public string LoanType { get; init; } = string.Empty;
+            public string Status { get; init; } = string.Empty;
+            public decimal MonthlyPayment { get; init; }
+            public decimal TotalPaid { get; init; }
+            public decimal OutstandingBalance { get; init; }
+            public DateTime StartDate { get; init; }
+            public DateTime EndDate { get; init; }
+        }
 
-        public record LoanDetailDto(
-            int Id,
-            int CustomerId,
-            string CustomerName,
-            decimal Amount,
-            decimal InterestRate,
-            int TermMonths,
-            string LoanType,
-            string Status,
-            decimal MonthlyPayment,
-            decimal TotalPaid,
-            decimal OutstandingBalance,
-            DateTime StartDate,
-            DateTime EndDate,
-            List<PaymentDto> Payments,
-            List<LoanScheduleDto> Schedule
-        );
+        public record LoanDetailDto
+        {
+            public int Id { get; init; }
+            public int CustomerId { get; init; }
+            public string CustomerName { get; init; } = string.Empty;
+            public decimal Amount { get; init; }
+            public decimal InterestRate { get; init; }
+            public int TermMonths { get; init; }
+            public string LoanType { get; init; } = string.Empty;
+            public string Status { get; init; } = string.Empty;
+            public decimal MonthlyPayment { get; init; }
+            public decimal TotalPaid { get; init; }
+            public decimal OutstandingBalance { get; init; }
+            public DateTime StartDate { get; init; }
+            public DateTime EndDate { get; init; }
+            public List<PaymentDto> Payments { get; init; } = new();
+            public List<LoanScheduleDto> Schedule { get; init; } = new();
+        }
 
         public record PaymentDto(
             int Id,

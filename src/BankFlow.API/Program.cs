@@ -23,7 +23,7 @@ builder.Services.AddMediatR(cfg =>
         typeof(BankFlow.Application.Commands.CreateLoan.CreateLoanCommand).Assembly));
 
 // === AutoMapper ===
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>());
 
 // === FluentValidation ===
 builder.Services.AddValidatorsFromAssembly(
