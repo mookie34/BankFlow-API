@@ -4,17 +4,18 @@
 
     public class Dtos
     {
-        public record CustomerDto(
-            int Id,
-            string FirstName,
-            string LastName,
-            string FullName,
-            string DocumentNumber,
-            string Email,
-            string Phone,
-            int CreditScore,
-            int ActiveLoansCount
-        );
+       public record CustomerDto
+{
+    public int Id { get; init; }
+    public string FirstName { get; init; } = string.Empty;
+    public string LastName { get; init; } = string.Empty;
+    public string FullName { get; init; } = string.Empty;
+    public string DocumentNumber { get; init; } = string.Empty;
+    public string Email { get; init; } = string.Empty;
+    public string Phone { get; init; } = string.Empty;
+    public int CreditScore { get; init; }
+    public int ActiveLoansCount { get; init; }
+}
 
         public record LoanDto
         {
@@ -52,25 +53,27 @@
             public List<LoanScheduleDto> Schedule { get; init; } = new();
         }
 
-        public record PaymentDto(
-            int Id,
-            int LoanId,
-            decimal Amount,
-            decimal PrincipalAmount,
-            decimal InterestAmount,
-            DateTime PaymentDate,
-            string? Reference
-        );
+public record PaymentDto
+{
+    public int Id { get; init; }
+    public int LoanId { get; init; }
+    public decimal Amount { get; init; }
+    public decimal PrincipalAmount { get; init; }
+    public decimal InterestAmount { get; init; }
+    public DateTime PaymentDate { get; init; }
+    public string? Reference { get; init; }
+}
 
-        public record LoanScheduleDto(
-            int InstallmentNumber,
-            DateTime DueDate,
-            decimal PrincipalAmount,
-            decimal InterestAmount,
-            decimal TotalAmount,
-            decimal Balance,
-            bool IsPaid
-        );
+public record LoanScheduleDto
+{
+    public int InstallmentNumber { get; init; }
+    public DateTime DueDate { get; init; }
+    public decimal PrincipalAmount { get; init; }
+    public decimal InterestAmount { get; init; }
+    public decimal TotalAmount { get; init; }
+    public decimal Balance { get; init; }
+    public bool IsPaid { get; init; }
+}
 
         public record CreateCustomerDto(
             string FirstName,

@@ -1,6 +1,6 @@
 # ===== Etapa 1: Build =====
 # Usa el SDK completo de .NET (pesado, tiene compilador)
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copiar solo los .csproj primero (mejor cache de layers)
@@ -30,7 +30,7 @@ RUN dotnet publish src/BankFlow.API -c Release -o /app --no-restore
 
 # ===== Etapa 2: Runtime =====
 # Usa solo el runtime de .NET (ligero, sin compilador)
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 
 # Crear usuario sin privilegios (seguridad)
